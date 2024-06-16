@@ -1,0 +1,76 @@
+<main>
+  <mat-tab-group dynamicHeight animationDuration="1000ms">
+    <mat-tab label="Get Todo by id">
+      <div class="inps">
+        <mat-form-field>
+          <mat-label>Id</mat-label>
+          <input min="1" max="254" type="number" #inp1 matInput />
+        </mat-form-field>
+        <button mat-raised-button (click)="getById(inp1)">Get</button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Get random Todo">
+      <div class="inps">
+        <button mat-raised-button (click)="getRand()">Get</button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Add new Todo">
+      <div class="inps">
+        <mat-form-field>
+          <mat-label>Content</mat-label>
+          <textarea matInput #inp3 placeholder="Ex. Do this..."></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Completed</mat-label>
+          <select #inp5 matNativeControl>
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>User Id</mat-label>
+          <input min="1" max="208" type="number" #inp4 matInput />
+        </mat-form-field>
+        <button mat-raised-button (click)="addTodo(inp3, inp5, inp4)">
+          Post
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Update a Todo">
+      <div class="inps">
+        <mat-form-field>
+          <mat-label>Id</mat-label>
+          <input min="1" max="254" type="number" #inp6 matInput />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Content</mat-label>
+          <textarea matInput #inp7 placeholder="Ex. Do this..."></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Completed</mat-label>
+          <select #inp8 matNativeControl>
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>User Id</mat-label>
+          <input min="1" max="208" type="number" #inp9 matInput />
+        </mat-form-field>
+        <button mat-raised-button (click)="updateTodo(inp6, inp7, inp8, inp9)">
+          Put
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Delete a Todo">
+      <div class="inps">
+        <mat-form-field>
+          <mat-label>Id</mat-label>
+          <input min="1" max="254" type="number" #inp2 matInput />
+        </mat-form-field>
+        <button mat-raised-button (click)="deleteId(inp2)">Delete</button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <app-todo [todo]="todo"></app-todo>
+</main>

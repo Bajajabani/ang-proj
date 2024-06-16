@@ -1,0 +1,8 @@
+<main>
+  <button mat-raised-button (click)="clear()">Clear Storage</button>
+  <div>
+    @for (todo of todos; track todo.id) {
+    <app-todo [todo]="todo"></app-todo>
+    }
+  </div>
+</main>

@@ -1,0 +1,49 @@
+<main>
+  <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <mat-form-field>
+      <mat-label for="name">Name</mat-label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        matNativeControl
+        [(ngModel)]="formData.name"
+        required
+        #nameCtrl="ngModel"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="email">Email</mat-label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        matNativeControl
+        [(ngModel)]="formData.email"
+        required
+        email
+        #emailCtrl="ngModel"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="message">Message</mat-label>
+      <textarea
+        type="text"
+        id="message"
+        name="message"
+        matInput
+        [(ngModel)]="formData.message"
+        required
+        #messageCtrl="ngModel"
+        #inp7
+        placeholder="Ex. Do this..."
+      ></textarea>
+    </mat-form-field>
+    <button mat-raised-button [disabled]="heroForm.invalid">Submit</button>
+  </form>
+
+  <div *ngIf="submitted">
+    <h3>Output:</h3>
+    <div>{{ formData | json }}</div>
+  </div>
+</main>
